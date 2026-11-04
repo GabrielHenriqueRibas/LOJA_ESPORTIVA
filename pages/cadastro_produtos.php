@@ -9,8 +9,6 @@
 
         $conexao->query($sql);
     }
-
-    
 ?>
 
 <?php include './includes/head.php'; ?>

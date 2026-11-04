@@ -1,5 +1,5 @@
 <nav class="space-x-4">
-    <a href="#" class="hover:underline">Início</a>
-    <a href="#produtos" class="hover:underline">Produtos</a>
-    <a href="#contato" class="hover:underline">Contato</a>
+    <a href="../index.php" class="hover:underline">Início</a>
+    <a href="../pages/listagem_produtos.php" class="hover:underline">Produtos</a>
+    <a href="../pages/cadastro_produtos.php" class="hover:underline">Cadastro</a>
 </nav>
