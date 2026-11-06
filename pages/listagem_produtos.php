@@ -1,12 +1,12 @@
 <?php
     require '../db/conexao.php';
-    $resultado = $conexao->query("SELECT * FROM produto ORDER BY id_produto DESC");
+    $resultado = $conexao->query("SELECT * FROM produto ORDER BY id_produto");
 ?>
 <?php include './includes/head.php'; ?>
 
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
     <?php include_once './includes/header.php'; ?>
-    <main class="flex-grow">
+    <main class="flex-grow mb-12">
         <div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
             <h2 class="text-xl font-bold text-slate-800 mb-4">Lista de Produtos</h2>
     
