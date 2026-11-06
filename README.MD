@@ -45,7 +45,7 @@ meu-projeto/
 > **Por que separar em partials?** Se o menu mudar, você altera **um arquivo só** e todas as páginas já ficam atualizadas. Sem partials, teria que editar página por página.
 
 
-## Aula 1 (29 e 30/10)
+## Aula 1 (29/10 a 03/11)
 
 ### O que fazer
 
@@ -57,7 +57,19 @@ meu-projeto/
 3. Montar os partials (`head`, `header`, `nav`, `footer`) e fazer as páginas usarem eles.
 4. Subir o projeto para o GitHub na branch indicada.
 
-> *Estática* quer dizer que a página só mostra HTML. Os dados da listagem são fixos, e o formulário ainda não salva nada. Isso vem nas próximas aulas.
+## Aula 2 (05/11 a 10/11)
+
+### O que fazer
+
+1. Criar o banco de dados do seu tema (`CREATE DATABASE`, `CREATE TABLE` e alguns `INSERT` de exemplo) e salvar o script em `db/banco.sql`.
+2. Ligar o projeto ao banco por meio do arquivo `db/config.php` e incluí-lo (`require_once`) nas páginas que usam o banco.
+3. Fazer o **cadastro** funcionar:
+- O formulário envia os dados, o PHP grava na tabela com `INSERT` e mostra uma mensagem de sucesso.
+4. Fazer a **listagem** funcionar:
+- A tabela passa a mostrar os dados salvos no banco, e não mais dados digitados à mão.
+5. Usar a cláusula `WHERE` para mostrar dados dinamicamente:
+- **Home:** mostrar os dados que atendem a uma condição. Exemplo: produtos com preço abaixo de R$ 100,00.
+- **Listagem:** criar filtros (por exemplo, por nome e por preço máximo). Ao filtrar, a tabela mostra só os registros que atendem à condição.
 
 ### Testando no computador
 
