@@ -57,7 +57,7 @@ meu-projeto/
 3. Montar os partials (`head`, `header`, `nav`, `footer`) e fazer as páginas usarem eles.
 4. Subir o projeto para o GitHub na branch indicada.
 
-## Aula 2 (05/11 a 10/11)
+## Aula 2 (05/11 a 13/11)
 
 ### O que fazer
 
@@ -70,6 +70,30 @@ meu-projeto/
 5. Usar a cláusula `WHERE` para mostrar dados dinamicamente:
 - **Home:** mostrar os dados que atendem a uma condição. Exemplo: produtos com preço abaixo de R$ 100,00.
 - **Listagem:** criar filtros (por exemplo, por nome e por preço máximo). Ao filtrar, a tabela mostra só os registros que atendem à condição.
+
+## Aula 3 (17/11 a 26/11)
+
+### O que fazer
+
+1. Criar um **novo banco de dados** para o seu tema, agora com **duas tabelas ligadas por uma `FOREIGN KEY`**. Exemplos: `produto` e `categoria`, `curso` e `area`, `funcionario` e `departamento`.
+- Criar primeiro a tabela "pai" e depois a tabela "filha", que recebe a chave estrangeira.
+- Salvar o script em `db/banco.sql`, com os `CREATE TABLE` e alguns `INSERT` de exemplo em cada tabela.
+2. Apontar a conexão (`db/config.php`) para o novo banco.
+3. Ajustar o **cadastro**:
+- O formulário ganha uma lista de seleção (`<select>`) com os registros da tabela "pai" (por exemplo, as categorias), e o `INSERT` grava a chave estrangeira escolhida.
+4. Usar o **`INNER JOIN`** na **listagem**:
+- A tabela passa a mostrar dados das duas tabelas na mesma consulta. Exemplo: o nome do produto e o **nome da categoria**, em vez do número do `id_categoria`.
+5. **Desafio (opcional):** combinar o `JOIN` com o `WHERE` para filtrar a listagem por categoria.
+
+> **Lembrete da sintaxe:**
+> ```sql
+> SELECT p.nome, c.nome AS categoria
+> FROM produto p
+> INNER JOIN categoria c ON p.id_categoria = c.id_categoria;
+> ```
+> O `ON` diz **qual coluna liga as duas tabelas**: a chave estrangeira da tabela filha com a chave primária da tabela pai.
+
+> **Dica:** teste a consulta com `JOIN` direto no MySQL antes de colocá-la no PHP. Se ela funciona lá, o que sobra é só mostrar o resultado na tela.
 
 ### Testando no computador
 

@@ -1,14 +1,26 @@
 <?php
     require '../db/conexao.php';
 
+    $mensagem = '';
+    $erro = '';
+
     if($_POST){
-        $nome = $_POST['nome'];
+        $nome = trim($_POST['nome']);
         $preco = $_POST['preco'];
+        $id_categoria = $_POST['id_categoria'];
 
-        $sql = "INSERT INTO produto(nome, preco) VALUES ('$nome', $preco)"; 
+        try {
+            $stmt = $conexao->prepare("INSERT INTO produto (nome, preco, id_categoria) VALUES (?, ?, ?)");
+            $stmt->bind_param("sdi", $nome, $preco, $id_categoria);
+            $stmt->execute();
 
-        $conexao->query($sql);
+            $mensagem = 'Produto cadastrado com sucesso!';
+        } catch (mysqli_sql_exception $e) {
+            $erro = 'Não foi possível cadastrar o produto.';
+        }
     }
+
+    $categorias = $conexao->query("SELECT id_categoria, nome FROM categoria ORDER BY nome");
 ?>
 
 <?php include './includes/head.php'; ?>

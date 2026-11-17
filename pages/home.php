@@ -1,6 +1,8 @@
 <?php
     require './db/conexao.php';
     $resultado = $conexao->query("SELECT * FROM produto WHERE preco<=300 LIMIT 4");
+
+
 ?>
 <?php include 'includes/head.php'; ?>
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
@@ -20,8 +22,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <?php while($produto = $resultado->fetch_assoc()): ?>
                     <div class="bg-white border rounded-lg p-4 text-center shadow-sm">
-                        <h3 class="font-semibold"><?= htmlspecialchars($produto['nome']) ?></h3>
-                        <p class="text-green-700 font-bold text-lg"> R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+                        <h3 class="font-semibold truncate"><?= htmlspecialchars($produto['nome']) ?></h3>
+                        <p class="text-green-700 font-bold text-lg">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
                     </div>
                 <?php endwhile; ?>
             </div>

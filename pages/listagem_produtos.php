@@ -1,6 +1,10 @@
 <?php
     require '../db/conexao.php';
-    $resultado = $conexao->query("SELECT * FROM produto ORDER BY id_produto");
+    $resultado = $conexao->query("
+    SELECT p.id_produto, p.nome, p.preco, c.nome AS categoria
+    FROM produto p
+    INNER JOIN categoria c ON p.id_categoria = c.id_categoria
+    ORDER BY p.id_produto");
 ?>
 <?php include './includes/head.php'; ?>
 
@@ -14,6 +18,7 @@
                 <?php while($produto = $resultado->fetch_assoc()): ?>
                     <div class="flex justify-between py-3">
                         <span class="text-slate-800"><?= htmlspecialchars($produto['nome']) ?></span>
+                        <span class="bg-gray-100 rounded-full p-2 text-xs text-slate-600"><?= htmlspecialchars($produto['categoria']) ?></span>
                         <span class="font-semibold text-slate-900">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></span>
                     </div>
                 <?php endwhile; ?>
